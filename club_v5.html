@@ -8,90 +8,97 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --cr:#9e141e;--cr-l:#c0272d;--cr-pale:#f7e8e9;
+  --cr:#9e141e;--cr-pale:#f7e8e9;
   --cream:#faf7f4;--dark:#1a1614;--mid:#5a4f4b;--soft:#a89892;
   --border:rgba(158,20,30,0.11);--border2:rgba(158,20,30,0.25);
 }
 body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);min-height:100vh}
 
-/* HERO */
-.hero{padding:52px 36px 40px;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;top:-80px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(158,20,30,.07) 0%,transparent 70%);pointer-events:none}
-.hero-flag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--cr);margin-bottom:16px}
-.hero-flag::before{content:'';display:inline-block;width:18px;height:1.5px;background:var(--cr)}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,6vw,54px);font-weight:300;line-height:1.08;letter-spacing:-.01em;margin-bottom:8px}
+.hero{padding:44px 28px 32px;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;top:-80px;right:-60px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(158,20,30,.07) 0%,transparent 70%);pointer-events:none}
+.hero-flag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--cr);margin-bottom:14px}
+.hero-flag::before{content:'';display:inline-block;width:16px;height:1.5px;background:var(--cr)}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,6vw,50px);font-weight:300;line-height:1.08;margin-bottom:6px}
 .hero-title em{font-style:italic;color:var(--cr)}
-.hero-sub{font-size:13px;font-weight:300;color:var(--soft);letter-spacing:.03em}
+.hero-sub{font-size:12.5px;font-weight:300;color:var(--soft)}
 
-/* NAV */
-.nav{display:flex;gap:2px;padding:14px 36px;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}
+.nav{display:flex;gap:2px;padding:12px 28px;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}
 .nav::-webkit-scrollbar{display:none}
-.nav-btn{flex-shrink:0;display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:100px;border:1px solid transparent;background:transparent;font-family:'Jost',sans-serif;font-size:12.5px;font-weight:400;color:var(--mid);cursor:pointer;transition:all .18s;white-space:nowrap}
+.nav-btn{flex-shrink:0;display:flex;align-items:center;gap:5px;padding:6px 13px;border-radius:100px;border:1px solid transparent;background:transparent;font-family:'Jost',sans-serif;font-size:12px;font-weight:400;color:var(--mid);cursor:pointer;transition:all .15s;white-space:nowrap}
 .nav-btn:hover{background:rgba(158,20,30,.05);color:var(--dark)}
 .nav-btn.active{background:var(--cr);color:#fff;border-color:var(--cr)}
 
-/* SECTIONS */
-.section{display:none;padding:32px 36px 64px;animation:fadeUp .25s ease}
+.section{display:none;padding:28px 28px 60px;animation:fu .22s ease}
 .section.active{display:block}
-@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-/* SECTION HEADER */
-.sec-head{margin-bottom:24px}
-.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;line-height:1.15;margin-bottom:3px}
-.sec-desc{font-size:12.5px;color:var(--soft);font-weight:300}
+.sec-head{margin-bottom:20px}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;line-height:1.15;margin-bottom:2px}
+.sec-desc{font-size:12px;color:var(--soft);font-weight:300}
 
-/* GROUP LABEL */
-.g-label{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin:24px 0 8px}
-.g-label:first-of-type{margin-top:0}
+.g-label{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin:20px 0 8px}
 
-/* CARDS */
 .cards{display:flex;flex-direction:column;gap:7px}
-.card{display:flex;align-items:flex-start;gap:12px;padding:13px 15px;background:#fff;border:1px solid var(--border);border-radius:11px;text-decoration:none;transition:all .18s;cursor:pointer}
-.card:hover{border-color:var(--border2);transform:translateY(-1px);box-shadow:0 3px 16px rgba(158,20,30,.06)}
-.c-icon{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
-.i-red{background:var(--cr-pale)}.i-blue{background:#e8f0fb}.i-green{background:#e8f5ee}.i-amber{background:#fdf3e3}.i-purple{background:#f0ecfb}.i-gray{background:#f1efea}
+.card{display:flex;align-items:flex-start;gap:11px;padding:12px 14px;background:#fff;border:1px solid var(--border);border-radius:11px;text-decoration:none;transition:all .15s}
+.card:hover{border-color:var(--border2);transform:translateY(-1px);box-shadow:0 3px 14px rgba(158,20,30,.06)}
+.c-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.i-red{background:var(--cr-pale)}.i-blue{background:#e8f0fb}.i-green{background:#e8f5ee}
+.i-amber{background:#fdf3e3}.i-purple{background:#f0ecfb}.i-gray{background:#f1efea}
 .c-body{flex:1;min-width:0}
-.c-title{font-size:13.5px;font-weight:500;color:var(--dark);line-height:1.35;margin-bottom:4px}
-.c-meta{display:flex;flex-wrap:wrap;align-items:center;gap:5px;font-size:11.5px;color:var(--soft);line-height:1.4}
-.c-text{font-size:12.5px;color:var(--mid);line-height:1.6;margin-top:6px;font-weight:300;display:none}
-.card.open .c-text{display:block}
-.card.open{border-color:var(--border2)}
-.c-arr{font-size:14px;color:var(--cr);opacity:0;transition:opacity .15s;align-self:center;flex-shrink:0;margin-left:4px}
+.c-title{font-size:13px;font-weight:500;color:var(--dark);line-height:1.35;margin-bottom:3px}
+.c-meta{font-size:11px;color:var(--soft);line-height:1.5;display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.c-arr{font-size:13px;color:var(--cr);opacity:0;transition:opacity .12s;align-self:center;flex-shrink:0;margin-left:4px}
 .card:hover .c-arr{opacity:.7}
-.c-toggle{font-size:11px;color:var(--cr);margin-top:6px;display:inline-block;cursor:pointer}
 
-/* BADGES */
-.badge{display:inline-block;padding:2px 7px;border-radius:100px;font-size:10.5px;font-weight:500;white-space:nowrap}
+.badge{display:inline-block;padding:2px 7px;border-radius:100px;font-size:10px;font-weight:500;white-space:nowrap}
 .bd{background:#fff3cd;color:#7a5c00}
 .ba{background:#e8f5ee;color:#1a6b3a}
 .bg{background:var(--cr-pale);color:var(--cr)}
 .bs{background:#f0ecfb;color:#4a2d8a}
-.bf{background:#e8f0fb;color:#1a4a8a}
 
-/* HOME GRID */
-.home-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:9px}
-.tile{padding:18px;background:#fff;border:1px solid var(--border);border-radius:13px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
-.tile::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--cr);transform:scaleX(0);transform-origin:left;transition:transform .22s}
+.home-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-bottom:24px}
+.tile{padding:16px;background:#fff;border:1px solid var(--border);border-radius:12px;cursor:pointer;transition:all .18s;position:relative;overflow:hidden}
+.tile::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--cr);transform:scaleX(0);transform-origin:left;transition:transform .2s}
 .tile:hover{border-color:var(--border2);transform:translateY(-2px)}
 .tile:hover::after{transform:scaleX(1)}
-.tile-icon{font-size:24px;margin-bottom:9px}
-.tile-name{font-size:13px;font-weight:500;color:var(--dark);margin-bottom:2px}
-.tile-sub{font-size:11px;color:var(--soft)}
+.tile-icon{font-size:22px;margin-bottom:8px}
+.tile-name{font-size:12.5px;font-weight:500;color:var(--dark);margin-bottom:2px}
+.tile-sub{font-size:10.5px;color:var(--soft)}
 
-/* WELCOME */
-.welcome{background:var(--cr);border-radius:13px;padding:22px 24px;margin-bottom:24px;color:#fff;position:relative;overflow:hidden}
-.welcome::after{content:'🇳🇴';position:absolute;right:18px;top:14px;font-size:38px;opacity:.2}
-.welcome-title{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:400;margin-bottom:5px}
-.welcome-text{font-size:12.5px;font-weight:300;opacity:.88;line-height:1.55}
+.welcome{background:var(--cr);border-radius:12px;padding:20px 22px;margin-bottom:20px;color:#fff;position:relative;overflow:hidden}
+.welcome::after{content:'🇳🇴';position:absolute;right:16px;top:12px;font-size:36px;opacity:.2}
+.welcome-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:4px}
+.welcome-text{font-size:12px;font-weight:300;opacity:.88;line-height:1.55}
 
-/* SEP */
-.sep{height:1px;background:var(--border);margin:18px 0}
-
-/* URGENT */
-.urgent{background:#fff8e1;border:1px solid #f0c040;border-radius:11px;padding:13px 15px;display:flex;gap:10px;margin-bottom:12px;align-items:flex-start}
-.urgent-icon{font-size:18px;flex-shrink:0}
-.urgent-text{font-size:13px;color:#5a4000;line-height:1.5}
+.urgent{background:#fff8e1;border:1px solid #f0c040;border-radius:10px;padding:12px 14px;display:flex;gap:9px;margin-bottom:10px;align-items:flex-start}
+.urgent-icon{font-size:16px;flex-shrink:0}
+.urgent-text{font-size:12.5px;color:#5a4000;line-height:1.5}
 .urgent-text strong{font-weight:500}
+
+/* CONTENT PLAN */
+.plan{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:10px}
+.plan-head{background:var(--cr);padding:12px 16px;color:#fff}
+.plan-head-title{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400}
+.plan-head-sub{font-size:11px;opacity:.8;margin-top:2px}
+.plan-row{display:flex;align-items:flex-start;gap:12px;padding:11px 16px;border-bottom:1px solid var(--border)}
+.plan-row:last-child{border-bottom:none}
+.plan-date{font-size:11px;font-weight:500;color:var(--cr);min-width:56px;padding-top:1px}
+.plan-info{}
+.plan-topic{font-size:12.5px;font-weight:500;color:var(--dark);margin-bottom:2px}
+.plan-detail{font-size:11px;color:var(--soft)}
+.plan-badge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:100px;margin-top:3px}
+.pb-done{background:#e8f5ee;color:#1a6b3a}
+.pb-soon{background:#e8f0fb;color:#185fa5}
+.pb-now{background:var(--cr-pale);color:var(--cr)}
+
+/* TOPICS OVERVIEW */
+.topics-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.topic-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+.topic-icon{font-size:18px;margin-bottom:6px}
+.topic-name{font-size:12px;font-weight:500;color:var(--dark);margin-bottom:5px}
+.topic-list{list-style:none}
+.topic-list li{font-size:11px;color:var(--mid);padding:1.5px 0;display:flex;align-items:flex-start;gap:5px}
+.topic-list li::before{content:'·';color:var(--cr);flex-shrink:0;font-weight:700}
 </style>
 </head>
 <body>
@@ -104,11 +111,8 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);min
 
 <nav class="nav">
   <button class="nav-btn active" onclick="show('home')" data-id="home">🏠 Главная</button>
-  <button class="nav-btn" onclick="show('webinars')" data-id="webinars">🎥 Записи эфиров</button>
-  <button class="nav-btn" onclick="show('labor')" data-id="labor">⚖️ Трудовые права</button>
-  <button class="nav-btn" onclick="show('finance')" data-id="finance">💰 Финансы</button>
-  <button class="nav-btn" onclick="show('housing')" data-id="housing">🏡 Недвижимость</button>
-  <button class="nav-btn" onclick="show('family')" data-id="family">👨‍👩‍👧 Семья</button>
+  <button class="nav-btn" onclick="show('webinars')" data-id="webinars">🎥 Эфиры</button>
+  <button class="nav-btn" onclick="show('topics')" data-id="topics">📌 Темы клуба</button>
   <button class="nav-btn" onclick="show('courses')" data-id="courses">📚 Курсы</button>
 </nav>
 
@@ -116,199 +120,325 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);min
 <section id="home" class="section active">
   <div class="welcome">
     <div class="welcome-title">Добро пожаловать в клуб</div>
-    <div class="welcome-text">Здесь собрано всё самое важное: записи эфиров, посты по темам, ответы на вопросы. Выберите нужный раздел.</div>
+    <div class="welcome-text">Записи эфиров, темы которые разбирали, курсы и контент-план — всё здесь. Ссылки ведут прямо в форум клуба.</div>
   </div>
+
   <div class="urgent">
     <div class="urgent-icon">⏰</div>
-    <div class="urgent-text"><strong>Срок подачи Skattemelding — до 30 апреля.</strong> Не забудьте подать налоговую декларацию. Записи вебинаров по налогам доступны до 1 мая.</div>
+    <div class="urgent-text"><strong>Срок подачи Skattemelding — до 30 апреля.</strong> Записи вебинаров по налогам доступны до 1 мая.</div>
   </div>
-  <div class="sec-head"><div class="sec-title">Разделы клуба</div></div>
+
+  <div class="g-label">Разделы</div>
   <div class="home-grid">
-    <div class="tile" onclick="show('webinars')"><div class="tile-icon">🎥</div><div class="tile-name">Записи эфиров</div><div class="tile-sub">5 активных записей</div></div><div class="tile-name">Налоги</div><div class="tile-sub">55+ постов</div></div>
-    <div class="tile" onclick="show('labor')"><div class="tile-icon">⚖️</div><div class="tile-name">Трудовые права</div><div class="tile-sub">35+ постов</div></div><div class="tile-name">ВНЖ</div><div class="tile-sub">20+ постов</div></div>
-    <div class="tile" onclick="show('finance')"><div class="tile-icon">💰</div><div class="tile-name">Финансы</div><div class="tile-sub">20+ постов</div></div>
-    <div class="tile" onclick="show('housing')"><div class="tile-icon">🏡</div><div class="tile-name">Недвижимость</div><div class="tile-sub">10+ постов</div></div>
-    <div class="tile" onclick="show('family')"><div class="tile-icon">👨‍👩‍👧</div><div class="tile-name">Семья и образование</div><div class="tile-sub">NAV, школы, Fagbrev</div></div>
-    <div class="tile" onclick="show('courses')"><div class="tile-icon">📚</div><div class="tile-name">Курсы</div><div class="tile-sub">4 курса + пакет вебинаров</div></div>
+    <div class="tile" onclick="show('webinars')"><div class="tile-icon">🎥</div><div class="tile-name">Записи эфиров</div><div class="tile-sub">8 активных записей</div></div>
+    <div class="tile" onclick="show('topics')"><div class="tile-icon">📌</div><div class="tile-name">Темы клуба</div><div class="tile-sub">Что разбирали</div></div>
+    <div class="tile" onclick="show('courses')"><div class="tile-icon">📚</div><div class="tile-name">Курсы</div><div class="tile-sub">4 курса + пакет</div></div>
+  </div>
+
+  <div class="g-label">Контент-план — май 2026</div>
+  <div class="plan">
+    <div class="plan-head">
+      <div class="plan-head-title">Что нас ждёт в клубе</div>
+      <div class="plan-head-sub">Темы эфиров и активности — обновляется еженедельно</div>
+    </div>
+    <div class="plan-row">
+      <div class="plan-date">22 апр</div>
+      <div class="plan-info">
+        <div class="plan-topic">Образование в Норвегии — серия вебинаров</div>
+        <div class="plan-detail">Школьная система, VGS, grunnskolepoeng, lærlingplass · Мария Кравцова</div>
+        <div class="plan-badge pb-done">✓ запись доступна</div>
+      </div>
+    </div>
+    <div class="plan-row">
+      <div class="plan-date">30 апр</div>
+      <div class="plan-info">
+        <div class="plan-topic">Дедлайн подачи Skattemelding</div>
+        <div class="plan-detail">Не забудьте подать налоговую декларацию · записи вебинаров по налогам доступны до 1 мая</div>
+        <div class="plan-badge pb-now">срочно</div>
+      </div>
+    </div>
+    <div class="plan-row">
+      <div class="plan-date">Май</div>
+      <div class="plan-info">
+        <div class="plan-topic">Продолжение серии об образовании</div>
+        <div class="plan-detail">Следующий вебинар с Марией Кравцовой — дата будет в календаре активностей</div>
+        <div class="plan-badge pb-soon">скоро</div>
+      </div>
+    </div>
+    <div class="plan-row">
+      <div class="plan-date">Май</div>
+      <div class="plan-info">
+        <div class="plan-topic">Эфир с ответами на вопросы</div>
+        <div class="plan-detail">Живой формат — задаёте вопросы, разбираем реальные кейсы</div>
+        <div class="plan-badge pb-soon">скоро</div>
+      </div>
+    </div>
+    <div class="plan-row">
+      <div class="plan-date">Май</div>
+      <div class="plan-info">
+        <div class="plan-topic">Тема недели — следите в форуме</div>
+        <div class="plan-detail">Каждую неделю новая тема · анонсы в разделе «Актуальное» и «Тема недели»</div>
+        <div class="plan-badge pb-soon">еженедельно</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ЭФИРЫ -->
 <section id="webinars" class="section">
-  <div class="sec-head"><div class="sec-title">Записи эфиров</div><div class="sec-desc">Доступны участникам клуба · ссылки активны в течение месяца после эфира</div></div>
+  <div class="sec-head">
+    <div class="sec-title">Записи эфиров</div>
+    <div class="sec-desc">Ссылки ведут в форум клуба · доступны только участникам · активны в течение месяца после эфира</div>
+  </div>
 
   <div class="g-label">Налоги</div>
   <div class="cards">
-    <a class="card" href="https://youtu.be/dDrs9AssgO8" target="_blank">
+    <a class="card" href="https://t.me/c/2627041701/451/4957" target="_blank">
       <div class="c-icon i-red">▶</div>
-      <div class="c-body"><div class="c-title">Вебинар 1 — Налоговая система Норвегии</div><div class="c-meta">17 марта 2026 · Skattemelding, kildeskatt, резидентство, Trinnskatt <span class="badge bd">до 1 мая</span></div></div>
+      <div class="c-body">
+        <div class="c-title">Вебинар 1 — Налоговая система Норвегии</div>
+        <div class="c-meta">17 марта 2026 · Skattemelding, kildeskatt, резидентство, Trinnskatt <span class="badge bd">до 1 мая</span></div>
+      </div>
       <div class="c-arr">→</div>
     </a>
-    <a class="card" href="https://youtu.be/592-NLuyaEU" target="_blank">
+    <a class="card" href="https://t.me/c/2627041701/451/4957" target="_blank">
       <div class="c-icon i-red">▶</div>
-      <div class="c-body"><div class="c-title">Вебинар 2 — Налоговые вычеты и ошибки в декларации</div><div class="c-meta">18 марта 2026 · Fradrag, ошибки в skattemelding, проверки Skatteetaten <span class="badge bd">до 1 мая</span></div></div>
+      <div class="c-body">
+        <div class="c-title">Вебинар 2 — Налоговые вычеты и ошибки в декларации</div>
+        <div class="c-meta">18 марта 2026 · Fradrag, ошибки в Skattemelding, проверки Skatteetaten <span class="badge bd">до 1 мая</span></div>
+      </div>
       <div class="c-arr">→</div>
     </a>
-    <a class="card" href="https://youtu.be/0jVZdE8ID1I" target="_blank">
+    <a class="card" href="https://t.me/c/2627041701/4511/5415" target="_blank">
       <div class="c-icon i-red">▶</div>
-      <div class="c-body"><div class="c-title">Skattekort 2026 — как заполнить и не переплатить</div><div class="c-meta">выложен 22 апреля <span class="badge bg">🎁 подарок участникам</span></div></div>
+      <div class="c-body">
+        <div class="c-title">Skattekort 2026 — как заполнить и не переплатить</div>
+        <div class="c-meta">выложен 22 апреля 2026 <span class="badge bg">🎁 подарок участникам</span></div>
+      </div>
       <div class="c-arr">→</div>
     </a>
   </div>
 
   <div class="g-label">Трудовые права</div>
   <div class="cards">
-    <a class="card" href="https://youtu.be/zaFsqz2-B34" target="_blank">
+    <a class="card" href="https://t.me/c/2627041701/451/5424" target="_blank">
       <div class="c-icon i-purple">▶</div>
-      <div class="c-body"><div class="c-title">Профсоюзы в Норвегии — как работают и кому нужны</div><div class="c-meta">9 апреля 2026 · fagforening, вступление, нюансы для мигрантов <span class="badge ba">до 9 мая</span></div></div>
+      <div class="c-body">
+        <div class="c-title">Профсоюзы в Норвегии — как работают и кому нужны</div>
+        <div class="c-meta">9 апреля 2026 · fagforening, вступление, fagforeningsfradrag, нюансы для мигрантов <span class="badge ba">до 9 мая</span></div>
+      </div>
       <div class="c-arr">→</div>
     </a>
   </div>
 
   <div class="g-label">Образование</div>
   <div class="cards">
-    <a class="card" href="https://youtu.be/tITbtAEeFTA" target="_blank">
+    <a class="card" href="https://t.me/c/2627041701/451/5424" target="_blank">
       <div class="c-icon i-green">▶</div>
-      <div class="c-body"><div class="c-title">Образование в Норвегии — школьная система, VGS, ключевые решения</div><div class="c-meta">22 апреля 2026 · grunnskole, grunnskolepoeng, VGS <span class="badge ba">до 22 мая</span> <span class="badge bs">Мария Кравцова</span></div></div>
+      <div class="c-body">
+        <div class="c-title">Образование в Норвегии — школьная система, VGS, ключевые решения</div>
+        <div class="c-meta">22 апреля 2026 · grunnskole, VGS, grunnskolepoeng, lærlingplass <span class="badge ba">до 22 мая</span> <span class="badge bs">Мария Кравцова</span></div>
+      </div>
       <div class="c-arr">→</div>
     </a>
   </div>
 
   <div class="g-label">Страхование</div>
   <div class="cards">
-    <a class="card" href="https://youtu.be/n0gRZ-PLeII" target="_blank">
+    <a class="card" href="https://t.me/c/2627041701/451/4233" target="_blank">
       <div class="c-icon i-amber">▶</div>
-      <div class="c-body"><div class="c-title">Страхование в Норвегии — мифы, где теряют деньги, какие полисы нужны</div><div class="c-meta">26 февраля 2026 <span class="badge bs">Эрнест Ланка · If</span></div></div>
-      <div class="c-arr">→</div>
-    </a>
-    <a class="card" href="https://youtu.be/Nmn8WeUiv1A" target="_blank">
-      <div class="c-icon i-amber">▶</div>
-      <div class="c-body"><div class="c-title">Страхование — расширенная запись семинара</div><div class="c-meta">март 2026 · barneforsikring, yrkesskade, жильё и авто <span class="badge bs">Эрнест Ланка · If</span></div></div>
+      <div class="c-body">
+        <div class="c-title">Страхование в Норвегии — мифы, где теряют деньги, какие полисы нужны</div>
+        <div class="c-meta">26 февраля 2026 · barneforsikring, yrkesskade, жильё и авто, reiseforsikring <span class="badge bs">Эрнест Ланка · If</span></div>
+      </div>
       <div class="c-arr">→</div>
     </a>
   </div>
 
-  <div class="g-label">ВНЖ и изменения миграционного законодательства</div>
+  <div class="g-label">ВНЖ и миграционное законодательство</div>
   <div class="cards">
-    <a class="card" href="https://youtu.be/ZePhCqX74yQ" target="_blank">
+    <a class="card" href="https://t.me/c/2627041701/451/4132" target="_blank">
       <div class="c-icon i-blue">▶</div>
-      <div class="c-body"><div class="c-title">Изменения UDI 2026 — пошлины, ужесточение практики, коллективная защита</div><div class="c-meta">январь 2026 · воссоединение семьи, интервью, стратегии по документам</div></div>
-      <div class="c-arr">→</div>
-    </a>
-    <a class="card" href="https://youtu.be/2pEbomnoamQ" target="_blank">
-      <div class="c-icon i-blue">▶</div>
-      <div class="c-body"><div class="c-title">NAV и пособия, работа и контракты, ВНЖ и документы — разбор кейсов</div><div class="c-meta">15 февраля 2026 · AAP, dagpenger, временные договоры, ошибки при подаче</div></div>
-      <div class="c-arr">→</div>
-    </a>
-  </div>
-
-  <div class="g-label">Финансы и пенсия</div>
-  <div class="cards">
-    <a class="card" href="https://youtu.be/b5M7VLauJQM" target="_blank">
-      <div class="c-icon i-amber">▶</div>
-      <div class="c-body"><div class="c-title">Norskpensjon — как читать профиль и управлять уровнем риска</div><div class="c-meta">2 июля 2025 · пошаговый разбор интерфейса, пенсионные накопления</div></div>
+      <div class="c-body">
+        <div class="c-title">NAV, пособия, работа, ВНЖ — разбор реальных кейсов</div>
+        <div class="c-meta">15 февраля 2026 · AAP, dagpenger, временные договоры, ошибки при подаче, финансы</div>
+      </div>
       <div class="c-arr">→</div>
     </a>
   </div>
 
   <div class="g-label">Недвижимость</div>
   <div class="cards">
-    <a class="card" href="https://youtu.be/ntoVA3RbUxw" target="_blank">
+    <a class="card" href="https://t.me/c/2627041701/451/3991" target="_blank">
       <div class="c-icon i-green">▶</div>
-      <div class="c-body"><div class="c-title">Как купить жильё в Норвегии в 2026 — кредиты, программы, без капитала</div><div class="c-meta">7 февраля 2026 · Husbanken, startlån, Finit, требования банков</div></div>
-      <div class="c-arr">→</div>
-    </a>
-  </div>
-</section>
-
-<!-- НАЛОГИ -->
-
-
-<!-- ТРУДОВЫЕ ПРАВА -->
-<section id="labor" class="section">
-  <div class="sec-head"><div class="sec-title">Трудовые права</div><div class="sec-desc">Профсоюзы · отпускные · больничные · увольнение · fagbrev · рынок труда</div></div>
-
-  <div class="g-label">Запись эфира по теме</div>
-  <div class="cards">
-    <a class="card" href="https://youtu.be/zaFsqz2-B34" target="_blank">
-      <div class="c-icon i-purple">▶</div>
-      <div class="c-body"><div class="c-title">Профсоюзы в Норвегии — как работают и кому нужны</div><div class="c-meta">9 апреля 2026 <span class="badge ba">до 9 мая</span></div></div>
+      <div class="c-body">
+        <div class="c-title">Как купить жильё в Норвегии в 2026 — кредиты, программы, без капитала</div>
+        <div class="c-meta">7 февраля 2026 · Husbanken, startlån, Finit, требования банков, типичные ошибки</div>
+      </div>
       <div class="c-arr">→</div>
     </a>
   </div>
 
-  <div class="g-label">Рынок труда и миграционный скандал</div>
-</section>
-
-<!-- ВНЖ -->
-
-
-<!-- ФИНАНСЫ -->
-<section id="finance" class="section">
-  <div class="sec-head"><div class="sec-title">Финансы</div><div class="sec-desc">Страхование · пенсия · Norskpensjon · BSU · инвестиции · сбережения</div></div>
-
-  <div class="g-label">Записи эфиров</div>
+  <div class="g-label">Финансы и пенсия</div>
   <div class="cards">
-    <a class="card" href="https://youtu.be/n0gRZ-PLeII" target="_blank">
+    <a class="card" href="https://t.me/c/2627041701/451/4132" target="_blank">
       <div class="c-icon i-amber">▶</div>
-      <div class="c-body"><div class="c-title">Страхование в Норвегии — мифы и реальность</div><div class="c-meta">26 февраля 2026 <span class="badge bs">Эрнест Ланка · If</span></div></div>
-      <div class="c-arr">→</div>
-    </a>
-    <a class="card" href="https://youtu.be/b5M7VLauJQM" target="_blank">
-      <div class="c-icon i-amber">▶</div>
-      <div class="c-body"><div class="c-title">Norskpensjon — как читать профиль и управлять пенсионными накоплениями</div><div class="c-meta">2 июля 2025</div></div>
-      <div class="c-arr">→</div>
-    </a>
-  </div>
-</section>
-
-<!-- НЕДВИЖИМОСТЬ -->
-<section id="housing" class="section">
-  <div class="sec-head"><div class="sec-title">Недвижимость</div><div class="sec-desc">Покупка · budrunde · кредиты · Husbanken · аренда · права при аренде</div></div>
-
-  <div class="g-label">Запись эфира</div>
-  <div class="cards">
-    <a class="card" href="https://youtu.be/ntoVA3RbUxw" target="_blank">
-      <div class="c-icon i-green">▶</div>
-      <div class="c-body"><div class="c-title">Как купить жильё в Норвегии в 2026 — кредиты, программы, без капитала</div><div class="c-meta">7 февраля 2026 · Husbanken, startlån, Finit, требования банков</div></div>
+      <div class="c-body">
+        <div class="c-title">Norskpensjon — как читать профиль и управлять уровнем риска</div>
+        <div class="c-meta">2 июля 2025 · пошаговый разбор интерфейса, пенсионные накопления, уровень риска</div>
+      </div>
       <div class="c-arr">→</div>
     </a>
   </div>
 </section>
 
-<!-- СЕМЬЯ И ОБРАЗОВАНИЕ -->
-<section id="family" class="section">
-  <div class="sec-head"><div class="sec-title">Семья и образование</div><div class="sec-desc">Школы · детские сады · Fagbrev · Barnetrygd · NAV · Lånekassen · Helfo</div></div>
+<!-- ТЕМЫ КЛУБА -->
+<section id="topics" class="section">
+  <div class="sec-head">
+    <div class="sec-title">Темы клуба</div>
+    <div class="sec-desc">Что разбирали с мая 2024 — всё это есть в форуме по топикам</div>
+  </div>
 
-  <div class="g-label">Запись эфира</div>
+  <div class="topics-grid">
+    <div class="topic-card">
+      <div class="topic-icon">📋</div>
+      <div class="topic-name">Налоги</div>
+      <ul class="topic-list">
+        <li>Skattekort — как заполнить</li>
+        <li>Skattemelding — декларация</li>
+        <li>Вычеты (fradrag)</li>
+        <li>Kildeskatt 25%</li>
+        <li>BSU, IPS, инвестиции</li>
+        <li>Налог на богатство</li>
+        <li>ENK и НДС (MVA)</li>
+        <li>Денежные переводы и подарки</li>
+      </ul>
+    </div>
+    <div class="topic-card">
+      <div class="topic-icon">⚖️</div>
+      <div class="topic-name">Трудовые права</div>
+      <ul class="topic-list">
+        <li>Отпускные (feriepenger)</li>
+        <li>Больничный и ВНЖ</li>
+        <li>Сверхурочные (overtid)</li>
+        <li>Dagpenger — когда и как</li>
+        <li>Увольнение и sluttavtale</li>
+        <li>Профсоюзы и fagforening</li>
+        <li>Fagbrev — пути получения</li>
+        <li>Банкротство работодателя</li>
+      </ul>
+    </div>
+    <div class="topic-card">
+      <div class="topic-icon">🛂</div>
+      <div class="topic-name">ВНЖ</div>
+      <ul class="topic-list">
+        <li>Рабочий ВНЖ (faglært)</li>
+        <li>Коллективная защита</li>
+        <li>Воссоединение семьи</li>
+        <li>Изменения UDI 2026</li>
+        <li>Апелляции и отказы</li>
+        <li>ВНЖ через ENK</li>
+        <li>Мужчины 18–60 и КЗ</li>
+        <li>Подтверждение образования</li>
+      </ul>
+    </div>
+    <div class="topic-card">
+      <div class="topic-icon">💰</div>
+      <div class="topic-name">Финансы</div>
+      <ul class="topic-list">
+        <li>Страхование и полисы</li>
+        <li>Norskpensjon — профиль</li>
+        <li>BSU и IPS</li>
+        <li>Aksjesparekonto (ASK)</li>
+        <li>Инвестиции — фонды и ETF</li>
+        <li>Finansklagenemnda — жалобы</li>
+        <li>NAV и samboere</li>
+        <li>Инвестиции 2026 — аналитика</li>
+      </ul>
+    </div>
+    <div class="topic-card">
+      <div class="topic-icon">🏡</div>
+      <div class="topic-name">Недвижимость</div>
+      <ul class="topic-list">
+        <li>Покупка — budrunde</li>
+        <li>Husbanken и startlån</li>
+        <li>Кредит без капитала</li>
+        <li>Права арендатора</li>
+        <li>Husleieloven — аренда</li>
+        <li>Særeie в браке</li>
+        <li>Kausjonist и medlånsøker</li>
+        <li>Процентная ставка 2026</li>
+      </ul>
+    </div>
+    <div class="topic-card">
+      <div class="topic-icon">👨‍👩‍👧</div>
+      <div class="topic-name">Семья и образование</div>
+      <ul class="topic-list">
+        <li>Школьная система Норвегии</li>
+        <li>VGS — академический путь</li>
+        <li>Lærlingplass и fagbrev</li>
+        <li>Grunnskolepoeng</li>
+        <li>Barnetrygd и NAV</li>
+        <li>Lånekassen — гранты</li>
+        <li>Helfo — брекеты детям</li>
+        <li>Права граждан ЕС</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="g-label">Актуальные темы апреля 2026</div>
   <div class="cards">
-    <a class="card" href="https://youtu.be/tITbtAEeFTA" target="_blank">
-      <div class="c-icon i-green">▶</div>
-      <div class="c-body"><div class="c-title">Образование в Норвегии — школьная система, VGS, ключевые решения</div><div class="c-meta">22 апреля 2026 <span class="badge ba">до 22 мая</span> <span class="badge bs">Мария Кравцова</span></div></div>
-      <div class="c-arr">→</div>
-    </a>
+    <div class="card">
+      <div class="c-icon i-red">📌</div>
+      <div class="c-body">
+        <div class="c-title">Skattemelding — дедлайн 30 апреля</div>
+        <div class="c-meta">Подать налоговую декларацию · проверить вычеты · записи вебинаров в разделе Эфиры <span class="badge" style="background:#fff3cd;color:#7a5c00">срочно</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="c-icon i-blue">📌</div>
+      <div class="c-body">
+        <div class="c-title">Коллективная защита — важные изменения</div>
+        <div class="c-meta">КЗ для мужчин 18–60 лет отменена · КЗ продлена до 6 марта 2027 · после 5 лет — право на подачу заявки на убежище</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="c-icon i-purple">📌</div>
+      <div class="c-body">
+        <div class="c-title">Fagforeningsfradrag — вычет до 8 000 крон</div>
+        <div class="c-meta">Вычет за членство в профсоюзе · в т.ч. профсоюзы стран ЕС · урок из курса доступен в форуме</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="c-icon i-green">📌</div>
+      <div class="c-body">
+        <div class="c-title">Образование в Норвегии — новая серия вебинаров</div>
+        <div class="c-meta">Запись первого вебинара уже доступна · продолжение в мае · спикер Мария Кравцова</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- КУРСЫ -->
 <section id="courses" class="section">
-  <div class="sec-head"><div class="sec-title">Курсы</div><div class="sec-desc">Подробные курсы по ключевым темам жизни в Норвегии — от Дарьи и команды</div></div>
+  <div class="sec-head">
+    <div class="sec-title">Курсы</div>
+    <div class="sec-desc">Подробные курсы по ключевым темам — от Дарьи и команды</div>
+  </div>
 
-  <div class="g-label">Актуально сейчас</div>
+  <div class="g-label">Сейчас актуально</div>
   <div class="cards">
     <a class="card" href="https://daria-norway.com/nalogi" target="_blank">
       <div class="c-icon i-red">📖</div>
       <div class="c-body">
         <div class="c-title">Налоговая декларация: путь к финансовой грамотности в Норвегии</div>
         <div class="c-meta">
-          30+ уроков · Skattekort, Skattemelding, вычеты, инвестиции, пенсия
-          <span class="badge bg">идёт набор до 30 апреля</span>
+          30+ уроков · Skattekort, Skattemelding, все вычеты, инвестиции, пенсия
+          <span class="badge bg">набор до 30 апреля</span>
         </div>
-        <div class="c-text" style="display:block;margin-top:8px">
-          <strong>Тариф «С обратной связью»</strong> — 1 590 NOK · 29 видеоуроков, ответы на вопросы от Дарьи и Марии, конспекты, доступ к форуму<br>
-          <strong>Тариф «Самостоятельный+»</strong> — 990 NOK · 22 урока, конспекты, бонусные материалы<br>
-          <strong>Тариф «Повторный»</strong> — для студентов потоков 2024 и 2025 годов<br>
-          <em>Рассрочка на 2–3 месяца без переплат доступна на сайте</em>
+        <div style="margin-top:8px;font-size:11.5px;color:var(--mid);line-height:1.6">
+          Тариф «С обратной связью» — 1 590 NOK · 29 уроков + ответы от Дарьи и Марии<br>
+          Тариф «Самостоятельный+» — 990 NOK · 22 урока · рассрочка на 2–3 мес.
         </div>
       </div>
       <div class="c-arr">→</div>
@@ -328,8 +458,8 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);min
     <a class="card" href="https://daria-norway.com/job" target="_blank">
       <div class="c-icon i-purple">📖</div>
       <div class="c-body">
-        <div class="c-title">Путь к работе в Норвегии (трудоустройство)</div>
-        <div class="c-meta">Стратегия, резюме, LinkedIn, сопроводительные письма, подготовка к собеседованиям, скрытый рынок, NAV</div>
+        <div class="c-title">Путь к работе в Норвегии</div>
+        <div class="c-meta">Стратегия выхода на рынок труда, резюме, LinkedIn, собеседования, скрытый рынок, NAV</div>
       </div>
       <div class="c-arr">→</div>
     </a>
@@ -345,7 +475,7 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);min
       <div class="c-icon i-amber">📖</div>
       <div class="c-body">
         <div class="c-title">Бизнес в Норвегии от А до Я. Сам себе бухгалтер</div>
-        <div class="c-meta">ENK и AS: регистрация, налоги, отчётность, программы учёта, расходы, годовой отчёт</div>
+        <div class="c-meta">ENK и AS: регистрация, налоги, отчётность, программы учёта, годовой отчёт</div>
       </div>
       <div class="c-arr">→</div>
     </a>
@@ -364,16 +494,14 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);min
   </div>
 </section>
 
-
 <script>
 function show(id) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(function(s){s.classList.remove('active')});
+  document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active')});
   document.getElementById(id).classList.add('active');
   document.querySelector('[data-id="'+id+'"]').classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
 }
-
 </script>
 </body>
 </html>
