@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тест: знаете ли вы норвежские законы о бизнесе? — Дарья Богоев</title>
+<meta name="description" content="Проверьте свои знания — хобби, подработка или бизнес в Норвегии?">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#F7F5F2;color:#1A1A1A;min-height:100vh;padding:0 16px 60px;display:flex;flex-direction:column;align-items:center}
+.topbar{width:100%;max-width:600px;display:flex;align-items:center;justify-content:space-between;padding:20px 0 0;margin-bottom:28px}
+.brand{font-size:13px;font-weight:700;letter-spacing:.05em;color:#8B1A1A;text-transform:uppercase}
+.brand a{color:inherit;text-decoration:none}
+.step-info{font-size:13px;color:#999}
+.progress-track{width:100%;max-width:600px;height:4px;background:#E0DDD8;border-radius:2px;margin-bottom:36px;overflow:hidden}
+.progress-fill{height:4px;background:#8B1A1A;border-radius:2px;transition:width .5s cubic-bezier(.4,0,.2,1)}
+.intro{width:100%;max-width:600px}
+.intro-tag{display:inline-block;background:#FEF0F0;color:#8B1A1A;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:22px}
+.intro-title{font-size:34px;font-weight:800;line-height:1.2;margin-bottom:14px}
+@media(max-width:480px){.intro-title{font-size:26px}}
+.intro-sub{font-size:16px;color:#555;line-height:1.65;margin-bottom:14px;max-width:480px}
+.intro-meta{font-size:13px;color:#999;margin-bottom:32px}
+.btn-start{display:inline-block;padding:16px 38px;background:#8B1A1A;color:#fff;border:none;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s,transform .1s}
+.btn-start:hover{background:#6B1212}
+.btn-start:active{transform:scale(.98)}
+.quiz{width:100%;max-width:600px;display:none}
+.card{background:#fff;border-radius:20px;padding:36px 40px;box-shadow:0 2px 16px rgba(0,0,0,.07);animation:fadeUp .3s ease}
+@media(max-width:480px){.card{padding:26px 20px;border-radius:16px}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.q-eyebrow{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#999;margin-bottom:12px}
+.q-text{font-size:20px;font-weight:700;line-height:1.4;color:#1A1A1A;margin-bottom:8px}
+@media(max-width:480px){.q-text{font-size:17px}}
+.q-hint{font-size:13px;color:#E07800;font-weight:600;margin-bottom:20px;margin-top:6px}
+.options{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;align-items:center;gap:14px;width:100%;padding:15px 18px;background:#F7F5F2;border:2px solid transparent;border-radius:12px;cursor:pointer;text-align:left;font-size:15px;color:#1A1A1A;line-height:1.4;transition:border-color .15s,background .15s,transform .1s;font-family:inherit}
+.opt:hover:not(:disabled){border-color:#8B1A1A;background:#FEF6F6;transform:translateY(-1px)}
+.opt:disabled{cursor:default}
+.opt.correct{background:#EBF5E0;border-color:#5A9E2F;color:#2A5A10}
+.opt.wrong{background:#FEF0F0;border-color:#8B1A1A;color:#6B1212}
+.opt.reveal-correct{background:#EBF5E0;border-color:#5A9E2F;color:#2A5A10}
+.opt-letter{width:28px;height:28px;border-radius:50%;background:#E0DDD8;color:#666;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;transition:background .15s,color .15s}
+.opt.correct .opt-letter{background:#5A9E2F;color:#fff}
+.opt.wrong .opt-letter{background:#8B1A1A;color:#fff}
+.opt.reveal-correct .opt-letter{background:#5A9E2F;color:#fff}
+.explanation{margin-top:16px;padding:14px 18px;border-radius:10px;font-size:14px;line-height:1.6;animation:fadeUp .25s ease}
+.explanation.correct-exp{background:#EBF5E0;color:#2A5A10;border-left:4px solid #5A9E2F}
+.explanation.wrong-exp{background:#FEF0F0;color:#6B1212;border-left:4px solid #8B1A1A}
+.explanation strong{font-weight:700}
+.btn-next{margin-top:20px;display:inline-block;padding:13px 28px;background:#1A1A1A;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:background .15s}
+.btn-next:hover{background:#333}
+.result{width:100%;max-width:600px;display:none;animation:fadeUp .4s ease}
+.score-card{background:#fff;border-radius:20px;padding:36px 40px;box-shadow:0 2px 16px rgba(0,0,0,.07);margin-bottom:20px;text-align:center}
+@media(max-width:480px){.score-card{padding:28px 22px}}
+.score-emoji{font-size:52px;margin-bottom:16px}
+.score-label{font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#999;margin-bottom:8px}
+.score-number{font-size:52px;font-weight:800;line-height:1;margin-bottom:6px}
+.score-number.great{color:#3A7A1A}
+.score-number.ok{color:#9A6500}
+.score-number.bad{color:#8B1A1A}
+.score-subtitle{font-size:17px;font-weight:700;color:#1A1A1A;margin-bottom:10px}
+.score-desc{font-size:15px;color:#555;line-height:1.6}
+.email-block{background:#fff;border-radius:16px;padding:24px 28px;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:20px}
+.email-block h3{font-size:17px;font-weight:700;margin-bottom:8px;color:#1A1A1A}
+.email-block p{font-size:14px;color:#666;margin-bottom:16px;line-height:1.5}
+.name-input{width:100%;padding:12px 16px;border:2px solid #E0DDD8;border-radius:10px;font-size:15px;font-family:inherit;color:#1A1A1A;background:#fff;outline:none;transition:border-color .15s;margin-bottom:10px}
+.name-input:focus{border-color:#8B1A1A}
+.email-row{display:flex;gap:10px;flex-wrap:wrap}
+.email-input{flex:1;min-width:200px;padding:12px 16px;border:2px solid #E0DDD8;border-radius:10px;font-size:15px;font-family:inherit;color:#1A1A1A;background:#fff;outline:none;transition:border-color .15s}
+.email-input:focus{border-color:#8B1A1A}
+.btn-send{padding:12px 22px;background:#8B1A1A;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:background .15s;white-space:nowrap}
+.btn-send:hover{background:#6B1212}
+.btn-send:disabled{background:#C0BDB8;cursor:default}
+.send-status{font-size:13px;margin-top:10px;color:#3A7A1A;display:none}
+.send-error{font-size:13px;margin-top:10px;color:#8B1A1A;display:none}
+.review-section{margin-bottom:20px}
+.review-title{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#999;margin-bottom:14px}
+.review-row{background:#fff;border-radius:12px;padding:16px 18px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start;box-shadow:0 1px 6px rgba(0,0,0,.05)}
+.review-dot{width:22px;height:22px;border-radius:50%;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+.dot-c{background:#C5E8A0;color:#2A5A10}
+.dot-w{background:#F5B8B8;color:#6B1212}
+.review-content strong{font-size:14px;font-weight:600;color:#1A1A1A;display:block;margin-bottom:4px}
+.review-content span{font-size:13px;color:#666;line-height:1.5}
+.cta-block{background:#1A1A1A;border-radius:20px;padding:32px 36px;margin-bottom:16px}
+@media(max-width:480px){.cta-block{padding:24px 20px}}
+.cta-block h3{font-size:20px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.3}
+.cta-block p{font-size:14px;color:#B0ADA8;line-height:1.65;margin-bottom:22px}
+.cta-link{display:inline-block;padding:13px 28px;background:#8B1A1A;color:#fff;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;transition:background .15s}
+.cta-link:hover{background:#6B1212}
+.cta-note{font-size:12px;color:#888;margin-top:10px}
+.btn-restart{display:block;text-align:center;width:100%;padding:14px;background:#fff;border:2px solid #E0DDD8;border-radius:12px;font-size:15px;color:#666;font-weight:600;cursor:pointer;font-family:inherit;transition:border-color .15s,color .15s;margin-top:4px}
+.btn-restart:hover{border-color:#999;color:#1A1A1A}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><a href="https://daria-norway.com">Daria Norway</a></div>
+  <div class="step-info" id="step-info"></div>
+</div>
+<div class="progress-track">
+  <div class="progress-fill" id="progress" style="width:0%"></div>
+</div>
+
+<div class="intro" id="intro">
+  <div class="intro-tag">Тест от Дарьи Богоев</div>
+  <h1 class="intro-title">Знаете ли вы,<br>когда в Норвегии<br>нужен бизнес ?</h1>
+  <p class="intro-sub">Многие думают что работают «просто так» — и попадают на штрафы. Проверьте свои знания о норвежских законах.</p>
+  <p class="intro-meta">13 вопросов · Правильный ответ объясняется · Счёт в конце</p>
+  <button class="btn-start" onclick="startQuiz()">Начать тест</button>
+</div>
+
+<div class="quiz" id="quiz"></div>
+<div class="result" id="result"></div>
+
+<script>
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbws-6S698lamdupyA7fQmk5wD7LlypXAhKNkEscUdkmvPDdR_hJHQcHWQiUNd93nyA/exec';
+
+const questions = [
+  {
+    emoji:"🎂",
+    text:"Маша печёт торты и продаёт их подружкам раз в год на день рождения. Это хобби или бизнес ?",
+    options:["Хобби — раз в год это не бизнес","Бизнес — нужно открывать ENK","Зависит от суммы — до 50 000 kroner можно не регистрировать"],
+    correct:0,tricky:false,
+    explanation:{correct:"Правильно! Разовая продажа без регулярности — это хобби. Но как только появляются регулярные заказы и Instagram — Skatteetaten считает иначе.",wrong:"Нет. Разовая продажа раз в год — это хобби. 50 000 kroner — это порог для MVA (НДС), а не порог для хобби."}
+  },
+  {
+    emoji:"📱",
+    text:"Катя ведёт Instagram в Норвегии и берёт рекламу у брендов из Молдовы. Нужно ли декларировать этот доход в Норвегии ?",
+    options:["Нет — деньги приходят из Молдовы","Да — живёт в Норвегии, значит декларирует здесь","Только если больше 50 000 kroner в год"],
+    correct:1,tricky:true,trickyNote:"Внимание — каверзный вопрос !",
+    explanation:{correct:"Правильно! Если вы налоговый резидент Норвегии — весь доход декларируется здесь. Неважно откуда пришли деньги: из Молдовы, Германии или через PayPal.",wrong:"Нет. Живёте в Норвегии — декларируете здесь. Откуда пришли деньги — не важно."}
+  },
+  {
+    emoji:"🏠",
+    text:"Лена сдаёт свою квартиру через Airbnb раз в год пока в отпуске и заработала 12 000 kroner. Нужно ли открывать ENK ?",
+    options:["Да — любая аренда требует ENK","Нет — ENK не нужен, но доход нужно декларировать","Нет — до 50 000 kroner вообще ничего не нужно"],
+    correct:1,tricky:false,
+    explanation:{correct:"Правильно! До 15 000 kroner в год от сдачи собственного жилья — без налога. ENK не нужен. Но декларировать нужно — с 2026 года Airbnb передаёт данные в Skatteetaten автоматически.",wrong:"Нет. ENK не нужен для разовой сдачи. До 15 000 kroner — без налога. Но декларировать нужно — Airbnb передаёт данные автоматически."}
+  },
+  {
+    emoji:"💸",
+    text:"Петя работает в Норвегии по найму и параллельно консультирует клиентов за наличные по вечерам. Нужен ли ему ENK ?",
+    options:["Нет — у него уже есть работа и он платит налоги","Да — любой регулярный дополнительный доход требует ENK","Только если консультации приносят больше зарплаты"],
+    correct:1,tricky:true,trickyNote:"Внимание — каверзный вопрос !",
+    explanation:{correct:"Правильно! Наличие основной работы не освобождает от обязанности оформить ENK на дополнительную деятельность. Оба источника дохода декларируются — но по разным правилам.",wrong:"Нет. Наличие работодателя не освобождает от регистрации ENK для дополнительной деятельности. Сумма не важна — важна регулярность и цель прибыли."}
+  },
+  {
+    emoji:"💅",
+    text:"Оля делает маникюр клиентам у себя дома 3 раза в неделю и зарабатывает 20 000 kroner в месяц. Что ей нужно ?",
+    options:["Ничего — это домашний бизнес","Открыть ENK и зарегистрировать помещение в коммуне","Только задекларировать доход — ENK не нужен"],
+    correct:1,tricky:false,
+    explanation:{correct:"Правильно! Регулярные платные beauty-услуги — бизнес. Нужно ENK + регистрация помещения в коммуне через Altinn. Одного ENK недостаточно.",wrong:"Нет. Регулярные платные услуги = бизнес. Нужно ENK + регистрация помещения в коммуне. Без этого — штрафы."}
+  },
+  {
+    emoji:"🛍",
+    text:"Света продаёт на Finn.no старые куртки, технику и мебель из своей квартиры. Это бизнес ?",
+    options:["Да — продаёт и получает деньги","Нет — продажа личных вещей не считается бизнесом","Только если продаёт больше 10 вещей в год"],
+    correct:1,tricky:true,trickyNote:"Внимание — каверзный вопрос !",
+    explanation:{correct:"Правильно! Продажа собственных личных вещей — не бизнес. Это не приносит прибыль, а лишь возвращает часть потраченного. Но если покупать вещи специально для перепродажи — это уже бизнес.",wrong:"Нет. Продажа личных вещей — не бизнес. Но если покупать вещи специально для перепродажи — это уже другая история."}
+  },
+  {
+    emoji:"📊",
+    text:"Сколько критериев использует Skatteetaten чтобы определить — хобби это или бизнес ?",
+    options:["2 — регулярность и доход","4 — регулярность, цель прибыли, объём, собственный риск","Один — оборот больше 50 000 kroner"],
+    correct:1,tricky:false,
+    explanation:{correct:"Правильно! Skatteetaten оценивает 4 критерия: цель заработка, регулярность, объём, собственный риск. Если всё совпадает — это бизнес независимо от суммы.",wrong:"Нет. Skatteetaten использует 4 критерия: цель заработка, регулярность, объём, собственный риск. 50 000 kroner — это порог для MVA, не для определения бизнеса."}
+  },
+  {
+    emoji:"💰",
+    text:"До какой суммы в год от сдачи собственного жилья через Airbnb не платится налог ?",
+    options:["10 000 kroner","15 000 kroner","50 000 kroner"],
+    correct:1,tricky:true,trickyNote:"Внимание — многие путают цифры !",
+    explanation:{correct:"Правильно! С 2025 года порог подняли с 10 000 до 15 000 kroner. Всё что выше — 85% от суммы сверх порога облагается по ставке 22%.",wrong:"Нет. С 2025 года правильный ответ — 15 000 kroner. Раньше было 10 000. 50 000 kroner — это порог для MVA — совсем другой вопрос."}
+  },
+  {
+    emoji:"🧹",
+    text:"Ира регулярно убирает квартиры за деньги. Помимо ENK — что ещё нужно для легальной работы ?",
+    options:["Ничего, ENK достаточно","Регистрация в реестре клининговых компаний и разрешение от Arbeidstilsynet","Разрешение от Mattilsynet"],
+    correct:1,tricky:false,
+    explanation:{correct:"Правильно! Клининг — лицензируемая деятельность. Нужно: ENK + реестр клининговых компаний + карта HMS + разрешение от Arbeidstilsynet.",wrong:"Нет. Mattilsynet — это контроль за едой. Для клининга нужно: ENK + реестр клининговых компаний + карта HMS + разрешение от Arbeidstilsynet."}
+  },
+  {
+    emoji:"🍕",
+    text:"Таня хочет продавать домашние торты. Что нужно сделать ДО первой продажи ?",
+    options:["Ничего — сначала продаёт, потом оформляет","ENK + регистрация в Mattilsynet + отдельная рабочая зона + маркировка аллергенов","Только задекларировать доход в конце года"],
+    correct:1,tricky:false,
+    explanation:{correct:"Правильно! Всё это нужно до первой продажи. Mattilsynet проверяет и штрафует даже за первую партию тортов без регистрации.",wrong:"Нет. Продажа еды строго регулируется. Нужно: ENK + Mattilsynet + отдельная рабочая зона + маркировка аллергенов — всё до первой продажи."}
+  },
+  {
+    emoji:"📲",
+    text:"Анна получает деньги от клиентов через Vipps на личный телефон. Видит ли это Skatteetaten ?",
+    options:["Нет — Vipps это личный кошелёк","Да — платежи через Vipps отслеживаются","Только если сумма больше 10 000 kroner за раз"],
+    correct:1,tricky:true,trickyNote:"Внимание — каверзный вопрос !",
+    explanation:{correct:"Правильно! Vipps работает через банки — все транзакции отслеживаются. Получать деньги через Vipps и не декларировать — это риск доначислений.",wrong:"Нет. Vipps работает через банки — все транзакции видны. Личный кошелёк не значит невидимый для налоговой."}
+  },
+  {
+    emoji:"🎨",
+    text:"Художник продаёт картины на ярмарках раз в месяц и продвигает себя в соцсетях. Это хобби или бизнес ?",
+    options:["Хобби — это же искусство","Бизнес — регулярность + продвижение = ENK","Зависит от суммы продаж"],
+    correct:1,tricky:false,
+    explanation:{correct:"Правильно! Регулярные продажи + продвижение = все 4 критерия выполнены. Для произведений искусства есть отдельные правила учёта и налог на искусство.",wrong:"Нет. Регулярность + продвижение = бизнес по норвежским законам. Сумма продаж не главный критерий."}
+  },
+  {
+    emoji:"⚠️",
+    text:"Что может произойти если Skatteetaten найдёт незадекларированный доход ?",
+    options:["Только штраф за текущий год","Доначисление за все прошлые годы + tilleggsskatt + проценты, возможны проблемы с ВНЖ","Предупреждение в первый раз, штраф только во второй"],
+    correct:1,tricky:false,
+    explanation:{correct:"Правильно! Skatteetaten может доначислить налог за все прошлые периоды + tilleggsskatt (удваивает долг) + проценты. Для иммигрантов — дополнительный риск для ВНЖ.",wrong:"Нет. Никаких предупреждений в первый раз не существует. Доначисление за все прошлые годы + tilleggsskatt + проценты. А для иммигрантов — риск для ВНЖ."}
+  }
+];
+
+let current=0,score=0,userAnswers=[],answered=false;
+
+function startQuiz(){
+  document.getElementById('intro').classList.add('hidden');
+  document.getElementById('quiz').style.display='block';
+  renderQuestion();
+}
+
+function renderQuestion(){
+  answered=false;
+  const q=questions[current];
+  const pct=Math.round((current/questions.length)*100);
+  document.getElementById('progress').style.width=pct+'%';
+  document.getElementById('step-info').textContent=(current+1)+' из '+questions.length;
+  const hint=q.tricky?`<div class="q-hint">⚡ ${q.trickyNote}</div>`:'';
+  const opts=q.options.map((o,i)=>`<button class="opt" id="opt${i}" onclick="pickAnswer(${i})"><span class="opt-letter">${String.fromCharCode(65+i)}</span><span>${o}</span></button>`).join('');
+  document.getElementById('quiz').innerHTML=`<div class="card"><div class="q-eyebrow">${q.emoji} Вопрос ${current+1}</div><div class="q-text">${q.text}</div>${hint}<div class="options">${opts}</div><div id="exp"></div><div id="next-wrap"></div></div>`;
+}
+
+function pickAnswer(idx){
+  if(answered)return;
+  answered=true;
+  const q=questions[current];
+  const ok=idx===q.correct;
+  if(ok)score++;
+  userAnswers.push({question:q.text,correct:ok,correctAnswer:q.options[q.correct]});
+  q.options.forEach((_,i)=>{
+    const b=document.getElementById('opt'+i);
+    b.disabled=true;
+    if(i===idx&&ok)b.classList.add('correct');
+    if(i===idx&&!ok)b.classList.add('wrong');
+    if(i===q.correct&&!ok)b.classList.add('reveal-correct');
+  });
+  const cls=ok?'correct-exp':'wrong-exp';
+  const txt=ok?q.explanation.correct:q.explanation.wrong;
+  document.getElementById('exp').innerHTML=`<div class="explanation ${cls}"><strong>${ok?'✓ Верно!':'✗ Неверно.'}</strong> ${txt}</div>`;
+  const lbl=current<questions.length-1?'Следующий вопрос →':'Посмотреть результат →';
+  document.getElementById('next-wrap').innerHTML=`<button class="btn-next" onclick="nextQuestion()">${lbl}</button>`;
+}
+
+function nextQuestion(){
+  current++;
+  if(current>=questions.length){showResult();return;}
+  renderQuestion();
+}
+
+function showResult(){
+  document.getElementById('quiz').style.display='none';
+  document.getElementById('step-info').textContent='Результат';
+  document.getElementById('progress').style.width='100%';
+  const pct=score/questions.length;
+  let emoji,cls,subtitle,desc;
+  if(pct>=0.8){emoji='🎉';cls='great';subtitle='Отличный результат !';desc='Вы хорошо разбираетесь в норвежских законах. Это поможет вам избежать штрафов и работать спокойно.';}
+  else if(pct>=0.5){emoji='🤔';cls='ok';subtitle='Есть пробелы — стоит разобраться';desc='Базовые вещи вы знаете, но некоторые нюансы — именно те за которые штрафуют — пока не до конца понятны.';}
+  else{emoji='😬';cls='bad';subtitle='Скорее всего, вы рискуете';desc='Именно такие пробелы приводят к доначислениям и штрафам от Skatteetaten. Хорошая новость — всё это можно изучить.';}
+  const rows=userAnswers.map((a,i)=>`<div class="review-row"><div class="review-dot ${a.correct?'dot-c':'dot-w'}">${a.correct?'✓':'✗'}</div><div class="review-content"><strong>Вопрос ${i+1}</strong><span>${a.correct?'Верно':'Правильный ответ: '+a.correctAnswer}</span></div></div>`).join('');
+  const el=document.getElementById('result');
+  el.style.display='block';
+  el.innerHTML=`
+    <div class="score-card">
+      <div class="score-emoji">${emoji}</div>
+      <div class="score-label">Ваш результат</div>
+      <div class="score-number ${cls}">${score} / ${questions.length}</div>
+      <div class="score-subtitle">${subtitle}</div>
+      <div class="score-desc">${desc}</div>
+    </div>
+    <div class="email-block">
+      <h3>Получите разбор на почту</h3>
+      <p>Оставьте email — пришлём подробный разбор всех вопросов и расскажем как избежать типичных ошибок при открытии бизнеса в Норвегии</p>
+      <input class="name-input" id="userName" type="text" placeholder="Ваше имя" />
+      <div class="email-row">
+        <input class="email-input" id="userEmail" type="email" placeholder="ваш@email.com" />
+        <button class="btn-send" id="sendBtn" onclick="sendToSheet()">Отправить</button>
+      </div>
+      <div class="send-status" id="sendStatus">✓ Отправлено ! Проверьте почту</div>
+      <div class="send-error" id="sendError"></div>
+    </div>
+    <div class="review-section">
+      <div class="review-title">Разбор ответов</div>
+      ${rows}
+    </div>
+    <div class="cta-block">
+      <h3>Хотите разобраться в бизнесе в Норвегии от А до Я ?</h3>
+      <p>Курс совместно с авторизованным бухгалтером Марией Корслунд. ENK или AS на реальных цифрах, налоги, вычеты, бухгалтерские программы, годовая отчётность — всё на русском языке. Доступ сразу после оплаты.</p>
+      <a class="cta-link" href="https://daria-norway.com/business">Узнать о курсе →</a>
+      <div class="cta-note">Рассрочка до 6 месяцев · от 582 kroner в месяц</div>
+    </div>
+    <button class="btn-restart" onclick="restart()">Пройти тест заново</button>
+  `;
+}
+
+async function sendToSheet(){
+  const email=document.getElementById('userEmail').value.trim();
+  const name=document.getElementById('userName').value.trim();
+  const errEl=document.getElementById('sendError');
+  if(!email||!email.includes('@')){
+    errEl.textContent='Введите корректный email';
+    errEl.style.display='block';
+    return;
+  }
+  const btn=document.getElementById('sendBtn');
+  btn.disabled=true;btn.textContent='...';
+  const answersStr=userAnswers.map((a,i)=>'В'+(i+1)+':'+(a.correct?'✓':'✗')).join(' | ');
+  try{
+    await fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name||'—',email,score:score+' из '+questions.length,total:questions.length,answers:answersStr,date:new Date().toLocaleString('ru-RU')})});
+    document.getElementById('sendStatus').style.display='block';
+    errEl.style.display='none';
+    btn.textContent='Отправлено ✓';
+  }catch(e){
+    errEl.textContent='Что-то пошло не так. Попробуйте ещё раз';
+    errEl.style.display='block';
+    btn.disabled=false;btn.textContent='Отправить';
+  }
+}
+
+function restart(){
+  current=0;score=0;userAnswers=[];answered=false;
+  document.getElementById('result').style.display='none';
+  document.getElementById('quiz').style.display='block';
+  document.getElementById('progress').style.width='0%';
+  renderQuestion();
+}
+</script>
+</body>
+</html>
