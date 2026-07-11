@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Клуб Дарья Норвей — сообщество для жизни в Норвегии</title>
+<meta name="description" content="Закрытый Telegram-клуб для русскоязычных в Норвегии: ответы на вопросы, юридические консультации, языковая практика и разбор бюрократии. 3 дня бесплатно, далее от 69 крон в месяц.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F3F5F0;
+    --bg-alt:#EAEDE5;
+    --card:#FFFFFF;
+    --ink:#1B2A28;
+    --ink-soft:#526059;
+    --ink-faint:#8A9690;
+    --fjord:#5B8467;
+    --fjord-dark:#3E6B4C;
+    --panel-light:#BFDCC3;
+    --rust:#8B1F1F;
+    --rust-dark:#671515;
+    --gold:#B98F2A;
+    --line:#D9DCD1;
+    --radius:14px;
+    --wrap:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;margin:0;color:var(--ink);}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--fjord);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  .eyebrow::before{content:"";width:16px;height:1px;background:var(--fjord);display:inline-block;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 26px;
+    border-radius:999px;
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:15px;
+    text-decoration:none;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn:focus-visible{outline:2px solid var(--fjord-dark);outline-offset:3px;}
+  .btn-primary{background:var(--rust);color:#fff;box-shadow:0 6px 20px rgba(193,81,47,0.28);}
+  .btn-primary:hover{background:var(--rust-dark);transform:translateY(-1px);}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--fjord);color:var(--fjord);}
+  .btn-light{background:var(--card);color:var(--fjord-dark);}
+  .btn-light:hover{transform:translateY(-1px);}
+
+  /* HEADER */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(243,245,240,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+  .logo{font-family:'Fraunces',serif;font-weight:600;font-size:19px;letter-spacing:0.01em;text-decoration:none;color:var(--ink);}
+  .logo span{color:var(--rust);}
+  .nav-links{display:flex;align-items:center;gap:32px;list-style:none;margin:0;padding:0;}
+  .nav-links a{text-decoration:none;font-size:14.5px;color:var(--ink-soft);transition:color .15s;}
+  .nav-links a:hover{color:var(--fjord-dark);}
+  .nav-cta{display:flex;align-items:center;gap:18px;}
+  #menu-toggle{display:none;}
+  .burger{display:none;cursor:pointer;padding:6px;}
+  .burger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;}
+  @media (max-width:860px){
+    .nav-links{
+      position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;align-items:flex-start;
+      background:var(--bg);
+      padding:20px 24px;gap:16px;
+      border-bottom:1px solid var(--line);
+      display:none;
+    }
+    #menu-toggle:checked ~ .nav-links{display:flex;}
+    .burger{display:block;}
+    .nav-cta .btn-ghost{display:none;}
+  }
+
+  /* HERO */
+  .hero{
+    position:relative;
+    padding:96px 0 80px;
+    overflow:hidden;
+    background:var(--bg);
+  }
+  .hero-topo{
+    position:absolute;inset:0;
+    opacity:0.5;
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;max-width:720px;}
+  .hero h1{font-size:clamp(34px,5.4vw,58px);line-height:1.08;margin-top:18px;letter-spacing:-0.01em;}
+  .hero h1 em{font-style:italic;color:var(--fjord-dark);}
+  .hero p.lead{font-size:18px;color:var(--ink-soft);max-width:560px;margin-top:22px;}
+  .hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:34px;}
+  .hero-note{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-faint);}
+  .hero-stats{
+    display:flex;gap:40px;margin-top:56px;padding-top:28px;border-top:1px solid var(--line);
+    max-width:560px;flex-wrap:wrap;
+  }
+  .stat-num{font-family:'Fraunces',serif;font-size:30px;font-weight:600;color:var(--fjord-dark);}
+  .stat-label{font-size:13px;color:var(--ink-soft);margin-top:2px;}
+
+  section{padding:88px 0;}
+  .section-alt{background:var(--bg-alt);}
+  .section-head{max-width:640px;margin-bottom:48px;}
+  .section-head h2{font-size:clamp(26px,3.4vw,38px);margin-top:14px;line-height:1.15;}
+  .section-head p{color:var(--ink-soft);margin-top:14px;font-size:16px;}
+
+  /* PAINS */
+  .pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+  .pain-item{background:var(--card);padding:26px 28px;display:flex;gap:14px;align-items:flex-start;}
+  .pain-mark{font-family:'IBM Plex Mono',monospace;color:var(--rust);font-size:14px;flex-shrink:0;margin-top:3px;}
+  .pain-item p{margin:0;font-size:15.5px;color:var(--ink);}
+  @media (max-width:700px){.pain-grid{grid-template-columns:1fr;}}
+
+  /* INTRO / VOICE */
+  .voice{
+    background:var(--panel-light);
+    color:var(--ink);
+    border-radius:20px;
+    padding:56px;
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:40px;
+    align-items:start;
+  }
+  .voice-mark{
+    width:56px;height:56px;border-radius:50%;
+    background:rgba(255,255,255,0.5);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-size:24px;color:var(--fjord-dark);
+    border:1px solid rgba(0,0,0,0.1);
+  }
+  .voice blockquote{margin:0;font-family:'Fraunces',serif;font-size:clamp(20px,2.6vw,27px);font-weight:400;line-height:1.45;font-style:italic;}
+  .voice cite{display:block;margin-top:22px;font-style:normal;font-family:'Inter',sans-serif;font-size:14px;color:var(--ink-soft);}
+  @media (max-width:760px){.voice{grid-template-columns:1fr;padding:36px 28px;}}
+
+  /* TICKETS */
+  .ticket-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media (max-width:900px){.ticket-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:600px){.ticket-grid{grid-template-columns:1fr;}}
+  .ticket{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:0;
+    position:relative;
+    overflow:hidden;
+  }
+  .ticket-top{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:16px 20px;
+    border-bottom:1px dashed var(--line);
+  }
+  .ticket-code{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--fjord-dark);background:var(--bg-alt);padding:4px 10px;border-radius:6px;}
+  .ticket-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:0.06em;}
+  .ticket-body{padding:22px 20px 24px;}
+  .ticket-body h3{font-size:19px;margin-bottom:10px;}
+  .ticket-body p{margin:0;font-size:14.5px;color:var(--ink-soft);}
+  .ticket-punch{
+    position:absolute;left:-8px;top:52px;
+    width:16px;height:16px;border-radius:50%;
+    background:var(--bg);border:1px solid var(--line);
+  }
+  .ticket-punch.right{left:auto;right:-8px;}
+
+  /* EXPERTS */
+  .expert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  @media (max-width:760px){.expert-grid{grid-template-columns:1fr;}}
+  .expert-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:30px 30px 28px;
+  }
+  .expert-name{font-family:'Fraunces',serif;font-size:21px;margin-bottom:4px;}
+  .expert-role{font-size:13.5px;color:var(--rust);font-family:'IBM Plex Mono',monospace;margin-bottom:14px;display:block;}
+  .expert-card p{margin:0;font-size:14.5px;color:var(--ink-soft);}
+
+  /* PRICING */
+  .price-grid{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;align-items:stretch;}
+  .price-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:44px 36px 40px;
+    max-width:400px;
+    width:100%;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(62,107,76,0.08);
+    position:relative;
+  }
+  .price-card-featured{border-color:var(--fjord);box-shadow:0 20px 50px rgba(62,107,76,0.18);}
+  .trial-badge{
+    display:inline-block;
+    background:var(--panel-light);
+    color:var(--fjord-dark);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:18px;
+  }
+  .featured-badge{
+    position:absolute;top:-13px;right:28px;
+    background:var(--rust);color:#fff;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;text-transform:uppercase;letter-spacing:0.05em;
+    padding:5px 12px;border-radius:999px;
+  }
+  .price-amount{font-family:'Fraunces',serif;font-size:56px;font-weight:600;color:var(--fjord-dark);margin-top:8px;}
+  .price-amount sup{font-size:20px;font-family:'Inter',sans-serif;font-weight:600;position:relative;top:-24px;margin-left:4px;}
+  .price-period{color:var(--ink-soft);font-size:14.5px;margin-top:2px;}
+  .price-list{list-style:none;margin:30px 0 0;padding:0;text-align:left;}
+  .price-list li{
+    display:flex;gap:10px;align-items:flex-start;
+    padding:11px 0;border-top:1px solid var(--line);
+    font-size:14.5px;
+  }
+  .price-list li:first-child{border-top:none;}
+  .check{color:var(--fjord);flex-shrink:0;margin-top:2px;}
+  .price-card .btn{width:100%;margin-top:28px;}
+  .price-fine{font-size:12.5px;color:var(--ink-faint);margin-top:16px;}
+
+  /* FAQ */
+  .faq{max-width:760px;}
+  details{
+    border-bottom:1px solid var(--line);
+    padding:20px 0;
+  }
+  details summary{
+    cursor:pointer;
+    font-family:'Fraunces',serif;
+    font-size:17px;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+  }
+  details summary::-webkit-details-marker{display:none;}
+  details summary::after{
+    content:"+";
+    font-family:'Inter',sans-serif;
+    font-size:22px;
+    color:var(--rust);
+    flex-shrink:0;
+    transition:transform .2s;
+  }
+  details[open] summary::after{content:"–";}
+  details p{margin:14px 0 0;color:var(--ink-soft);font-size:15px;max-width:640px;}
+
+  /* FINAL CTA */
+  .final-cta{
+    background:var(--panel-light);
+    border-radius:24px;
+    padding:64px 48px;
+    text-align:center;
+    color:var(--ink);
+  }
+  .final-cta h2{color:var(--ink);font-size:clamp(28px,4vw,42px);}
+  .final-cta p{color:var(--ink-soft);margin-top:14px;max-width:480px;margin-left:auto;margin-right:auto;}
+  .final-cta .hero-actions{justify-content:center;margin-top:30px;}
+  .final-cta .btn-light{background:var(--card);color:var(--fjord-dark);box-shadow:0 6px 18px rgba(0,0,0,0.08);}
+
+  /* FOOTER */
+  footer{padding:56px 0 40px;border-top:1px solid var(--line);}
+  .footer-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+  .footer-legal{font-size:12.5px;color:var(--ink-faint);line-height:1.8;max-width:340px;}
+  .footer-links{display:flex;gap:20px;list-style:none;padding:0;margin:0;}
+  .footer-links a{font-size:14px;color:var(--ink-soft);text-decoration:none;}
+  .footer-links a:hover{color:var(--fjord-dark);}
+  .footer-bottom{margin-top:36px;padding-top:24px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-faint);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo">Клуб <span>Дарья Норвей</span></a>
+    <input type="checkbox" id="menu-toggle">
+    <ul class="nav-links">
+      <li><a href="#club">О клубе</a></li>
+      <li><a href="#inside">Что внутри</a></li>
+      <li><a href="#experts">Эксперты</a></li>
+      <li><a href="#price">Стоимость</a></li>
+      <li><a href="#faq">Вопросы</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://darianorwayclubbot.tg.pulse.is" class="btn btn-ghost" target="_blank" rel="noopener">Уже с нами</a>
+      <a href="#price" class="btn btn-primary">Начать 3 дня бесплатно</a>
+      <label for="menu-toggle" class="burger"><span></span><span></span><span></span></label>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <svg class="hero-topo" viewBox="0 0 1120 480" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M-20 380 Q 200 320 380 370 T 780 340 T 1140 390" stroke="#5B8467" stroke-opacity="0.14" stroke-width="1.5" fill="none"/>
+      <path d="M-20 420 Q 220 360 400 410 T 800 380 T 1140 430" stroke="#5B8467" stroke-opacity="0.10" stroke-width="1.5" fill="none"/>
+      <path d="M-20 320 Q 180 260 360 310 T 760 280 T 1140 330" stroke="#8B1F1F" stroke-opacity="0.08" stroke-width="1.5" fill="none"/>
+    </svg>
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Закрытый Telegram-клуб</span>
+      <h1>Норвегия перестаёт быть <em>загадкой</em>, если рядом есть кому спросить</h1>
+      <p class="lead">Сообщество для тех, кто живёт в Норвегии или только переезжает. Ответы на вопросы, разбор бюрократии, языковая практика и люди, которые проходят через то же самое.</p>
+      <div class="hero-actions">
+        <a href="#price" class="btn btn-primary">Начать 3 дня бесплатно</a>
+        <span class="hero-note">Далее от 69 NOK / месяц · отменить можно в любой момент до конца триала</span>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">400+</div>
+          <div class="stat-label">активных участников</div>
+        </div>
+        <div>
+          <div class="stat-num">2 500+</div>
+          <div class="stat-label">человек в сообществе</div>
+        </div>
+        <div>
+          <div class="stat-num">3</div>
+          <div class="stat-label">приглашённых эксперта</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAINS -->
+  <section id="club">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Знакомо?</span>
+        <h2>Переезд в Норвегию решает одни вопросы и сразу открывает десять новых</h2>
+        <p>Skatteetaten, NAV, fastlege, barnehage, fagbrev - за каждым словом стоит своя система, и разобраться в одиночку получается не с первого раза.</p>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-item"><span class="pain-mark">01</span><p>Письмо от Skatteetaten пришло на норвежском, и Google Переводчик выдаёт что-то похожее на юридический текст, но не объясняет, что делать</p></div>
+        <div class="pain-item"><span class="pain-mark">02</span><p>Непонятно, к кому идти с конкретным вопросом - к юристу, в NAV или спросить в чате у тех, кто уже прошёл это</p></div>
+        <div class="pain-item"><span class="pain-mark">03</span><p>Норвежский учится медленно, потому что практиковать его особо не с кем, кроме кассира в Kiwi</p></div>
+        <div class="pain-item"><span class="pain-mark">04</span><p>Решения по трудоустройству, образованию детей или открытию ENK принимаются на слух, без проверенной информации</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOICE -->
+  <section class="section-alt">
+    <div class="wrap">
+      <div class="voice">
+        <div class="voice-mark">ДБ</div>
+        <div>
+          <blockquote>Я живу в Норвегии с 2011 года и помню каждое своё «а как это устроено». Клуб - это место, куда я собрала всё, что сама искала годами: понятные ответы, проверенных специалистов и людей рядом, которым можно написать в любой момент.</blockquote>
+          <cite>Дарья Богоев, основатель клуба</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSIDE -->
+  <section id="inside">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Что внутри</span>
+        <h2>Шесть направлений, за которыми стоят конкретные люди и конкретные ответы</h2>
+        <p>Каждое направление клуба - это отдельная «очередь», в которую можно встать с вопросом. Никакой общей ленты советов без адресата.</p>
+      </div>
+      <div class="ticket-grid">
+
+        <div class="ticket">
+          <span class="ticket-punch"></span><span class="ticket-punch right"></span>
+          <div class="ticket-top"><span class="ticket-code">№ Q</span><span class="ticket-tag">Вопросы Дарье</span></div>
+          <div class="ticket-body">
+            <h3>Личные ответы от эксперта</h3>
+            <p>Дарья лично отвечает на вопросы участников и разбирает реальные ситуации - от первых месяцев в стране до сложных бюрократических случаев.</p>
+          </div>
+        </div>
+
+        <div class="ticket">
+          <span class="ticket-punch"></span><span class="ticket-punch right"></span>
+          <div class="ticket-top"><span class="ticket-code">№ S</span><span class="ticket-tag">Språkkafé</span></div>
+          <div class="ticket-body">
+            <h3>Языковая практика</h3>
+            <p>Ведёт Дарья Пуре - аккредитованный преподаватель норвежского (HK-dir, 2024) и автор учебника «Først i norsk». Живой разговорный норвежский, а не грамматика в вакууме.</p>
+          </div>
+        </div>
+
+        <div class="ticket">
+          <span class="ticket-punch"></span><span class="ticket-punch right"></span>
+          <div class="ticket-top"><span class="ticket-code">№ W</span><span class="ticket-tag">Вебинары</span></div>
+          <div class="ticket-body">
+            <h3>Живые эфиры и темы недели</h3>
+            <p>Дарья регулярно проводит вебинары и отвечает на вопросы участников в прямом эфире. У каждой недели своя тема - например, подработки в Норвегии.</p>
+          </div>
+        </div>
+
+        <div class="ticket">
+          <span class="ticket-punch"></span><span class="ticket-punch right"></span>
+          <div class="ticket-top"><span class="ticket-code">№ U</span><span class="ticket-tag">Образование</span></div>
+          <div class="ticket-body">
+            <h3>Школа, fagbrev, videregående</h3>
+            <p>Мария Кравцова, преподаватель норвежской videregående skole, объясняет систему образования и возможности получить fagbrev.</p>
+          </div>
+        </div>
+
+        <div class="ticket">
+          <span class="ticket-punch"></span><span class="ticket-punch right"></span>
+          <div class="ticket-top"><span class="ticket-code">№ B</span><span class="ticket-tag">Бизнес</span></div>
+          <div class="ticket-body">
+            <h3>Своё дело в Норвегии</h3>
+            <p>Курс «Бизнес от А до Я» с приглашённым экспертом Лейлой - что нужно знать, чтобы открыть и вести собственное предприятие.</p>
+          </div>
+        </div>
+
+        <div class="ticket">
+          <span class="ticket-punch"></span><span class="ticket-punch right"></span>
+          <div class="ticket-top"><span class="ticket-code">№ A</span><span class="ticket-tag">Архив</span></div>
+          <div class="ticket-body">
+            <h3>Библиотека записей</h3>
+            <p>В архиве клуба - записи прошедших вебинаров, включая два выпуска с юристом Стеллой Трубаенко: о трудовых правах и о социальной опеке. Смотрите в удобное время.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTS -->
+  <section id="experts" class="section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Эксперты клуба</span>
+        <h2>Люди, к которым вы обращаетесь напрямую</h2>
+        <p>Каждый эксперт клуба практикует в своей области сейчас, а не когда-то давно.</p>
+      </div>
+      <div class="expert-grid">
+        <div class="expert-card">
+          <div class="expert-name">Дарья Богоев</div>
+          <span class="expert-role">Основатель клуба</span>
+          <p>В Норвегии с 2011 года. Ведёт вебинары, лично отвечает на вопросы участников и курирует всё содержание клуба.</p>
+        </div>
+        <div class="expert-card">
+          <div class="expert-name">Дарья Пуре</div>
+          <span class="expert-role">Преподаватель норвежского</span>
+          <p>Аккредитована HK-dir (2024), автор учебника «Først i norsk». Ведёт Språkkafé - разговорную практику для участников клуба.</p>
+        </div>
+        <div class="expert-card">
+          <div class="expert-name">Мария Кравцова</div>
+          <span class="expert-role">Эксперт по образованию</span>
+          <p>Преподаёт в норвежской videregående skole. Разбирает вопросы школьного образования и fagbrev.</p>
+        </div>
+        <div class="expert-card">
+          <div class="expert-name">Лейла</div>
+          <span class="expert-role">Гость курса «Бизнес от А до Я»</span>
+          <p>Ведёт курс о том, как открыть и вести своё дело в Норвегии - от идеи до первых клиентов.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="price">
+    <div class="wrap">
+      <div class="section-head" style="margin-left:auto;margin-right:auto;text-align:center;">
+        <span class="eyebrow" style="justify-content:center;">Акция</span>
+        <h2>3 дня в клубе бесплатно на любом тарифе</h2>
+        <p style="margin-left:auto;margin-right:auto;">Пробуете клуб без риска. Если решите остаться - подписка продлится автоматически по выбранному тарифу. Отменить можно в любой момент до конца пробного периода.</p>
+      </div>
+      <div class="price-grid">
+
+        <div class="price-card">
+          <span class="trial-badge">3 дня бесплатно</span>
+          <span class="eyebrow" style="justify-content:center;">Помесячно</span>
+          <div class="price-amount">69<sup>NOK</sup></div>
+          <div class="price-period">в месяц после пробного периода</div>
+          <ul class="price-list">
+            <li><span class="check">✓</span> Личные ответы Дарьи на вопросы</li>
+            <li><span class="check">✓</span> Språkkafé с Дарьей Пуре</li>
+            <li><span class="check">✓</span> Живые вебинары и темы недели с Дарьей</li>
+            <li><span class="check">✓</span> Разборы образования и fagbrev с Марией Кравцовой</li>
+            <li><span class="check">✓</span> Архив записей прошедших вебинаров</li>
+            <li><span class="check">✓</span> Закрытое сообщество в Telegram</li>
+          </ul>
+          <a href="https://buy.stripe.com/aFaaEXemO3yE1x10dgawo0x" class="btn btn-primary" target="_blank" rel="noopener">Начать 3 дня бесплатно</a>
+          <div class="price-fine">Первые 3 дня бесплатно, затем автоматическое списание 69 NOK каждый месяц. Отмена в любой момент.</div>
+        </div>
+
+        <div class="price-card price-card-featured">
+          <span class="trial-badge">3 дня бесплатно</span>
+          <span class="featured-badge">Выгоднее</span>
+          <span class="eyebrow" style="justify-content:center;">На 3 месяца</span>
+          <div class="price-amount">207<sup>NOK</sup></div>
+          <div class="price-period">раз в 3 месяца после пробного периода</div>
+          <ul class="price-list">
+            <li><span class="check">✓</span> Личные ответы Дарьи на вопросы</li>
+            <li><span class="check">✓</span> Språkkafé с Дарьей Пуре</li>
+            <li><span class="check">✓</span> Живые вебинары и темы недели с Дарьей</li>
+            <li><span class="check">✓</span> Разборы образования и fagbrev с Марией Кравцовой</li>
+            <li><span class="check">✓</span> Архив записей прошедших вебинаров</li>
+            <li><span class="check">✓</span> Закрытое сообщество в Telegram</li>
+          </ul>
+          <a href="https://buy.stripe.com/6oUfZhguW2uAfnR9NQawo0y" class="btn btn-primary" target="_blank" rel="noopener">Начать 3 дня бесплатно</a>
+          <div class="price-fine">Первые 3 дня бесплатно, затем автоматическое списание 207 NOK каждые 3 месяца. Отмена в любой момент.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Вопросы</span>
+        <h2>Прежде чем вступить</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Клуб подойдёт, если я только переезжаю в Норвегию?</summary>
+          <p>Да. Часть вопросов в клубе как раз о первых шагах - оформлении документов, поиске жилья и адаптации. Можно писать свои вопросы с самого начала.</p>
+        </details>
+        <details>
+          <summary>Нужно ли уже знать норвежский язык?</summary>
+          <p>Нет. Общение в клубе идёт на русском, а Språkkafé с Дарьей Пуре как раз создан для того, чтобы постепенно начать говорить по-норвежски.</p>
+        </details>
+        <details>
+          <summary>В клубе есть юридические консультации?</summary>
+          <p>Постоянного юриста в клубе сейчас нет. В архиве доступны две записи вебинаров с юристом Стеллой Трубаенко - о трудовых правах и о социальной опеке. На текущие вопросы участников по мере сил отвечает Дарья, а по актуальным темам проводятся живые вебинары.</p>
+        </details>
+        <details>
+          <summary>Как работает бесплатный период?</summary>
+          <p>Первые 3 дня после оформления доступ к клубу бесплатный. Если ничего не отменить, подписка продлится автоматически по выбранному тарифу - 69 NOK в месяц или 207 NOK раз в 3 месяца. Списание происходит через Stripe.</p>
+        </details>
+        <details>
+          <summary>Как отменить подписку?</summary>
+          <p>Отменить можно в любой момент, в том числе до окончания бесплатного периода - тогда списания не будет. После активации платной подписки отмена останавливает следующее продление.</p>
+        </details>
+        <details>
+          <summary>Где именно проходит общение?</summary>
+          <p>Весь клуб живёт в Telegram - в закрытом чате и через бота, который выдаёт доступ после оплаты.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section>
+    <div class="wrap">
+      <div class="final-cta">
+        <span class="eyebrow" style="justify-content:center;">Присоединиться</span>
+        <h2>Следующий вопрос о Норвегии не обязательно решать в одиночку</h2>
+        <p>400+ человек уже задают свои вопросы в клубе. Попробуйте 3 дня бесплатно и получите доступ ко всем направлениям сразу.</p>
+        <div class="hero-actions">
+          <a href="#price" class="btn btn-light">Начать 3 дня бесплатно</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-legal">
+        Firmanavn D. BOGOEV - CONSULTING<br>
+        Organisasjonsnummer 828998862<br>
+        Steinsoppgrenda 16B, 1352 KOLSÅS<br>
+        E-mail: info@daria-norway.com
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://www.instagram.com/daria.norway" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://youtube.com/@dariabogoev1764" target="_blank" rel="noopener">YouTube</a></li>
+        <li><a href="https://t.me/daria_norge" target="_blank" rel="noopener">Telegram-канал</a></li>
+        <li><a href="https://daria-norway.com" target="_blank" rel="noopener">Основной сайт</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">© 2026 D. BOGOEV - CONSULTING · Клуб Дарья Норвей</div>
+  </div>
+</footer>
+
+</body>
+</html>
